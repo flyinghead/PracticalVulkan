@@ -23,4 +23,5 @@ void main() {
   vec4 backgroud_image = texture( u_BackgroundTexture, v_Texcoord );
   vec4 benchmark_image = texture( u_BenchmarkTexture, v_Texcoord );
   o_Color = v_Distance * mix( backgroud_image, benchmark_image, benchmark_image.a );
+  gl_FragDepth = 0.5;
 }

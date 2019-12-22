@@ -499,7 +499,7 @@ namespace ApiWithoutSecrets {
     vk::PipelineDepthStencilStateCreateInfo depth_stencil_state_create_info(
       vk::PipelineDepthStencilStateCreateFlags( 0 ),                // VkPipelineDepthStencilStateCreateFlags         flags
       VK_TRUE,                                                      // VkBool32                                       depthTestEnable
-      VK_TRUE,                                                      // VkBool32                                       depthWriteEnable
+      VK_FALSE,                                                      // VkBool32                                       depthWriteEnable
       vk::CompareOp::eLessOrEqual                                   // VkCompareOp                                    depthCompareOp
     );
 
@@ -609,7 +609,7 @@ namespace ApiWithoutSecrets {
     for( size_t i = 0; i < instance_data.size(); i+=4 ) {
       instance_data[i] = static_cast<float>(std::rand() % 513) / 256.0f - 1.0f;
       instance_data[i + 1] = static_cast<float>(std::rand() % 513) / 256.0f - 1.0f;
-      instance_data[i + 2] = static_cast<float>(std::rand() % 513) / 512.0f;
+      instance_data[i + 2] = static_cast<float>(std::rand() % 513) / 512.0f - 1.0f;
       instance_data[i + 3] = 0.0f;
     }
     Parameters.InstanceBuffer = SampleCommon::CreateBuffer( static_cast<uint32_t>(instance_data.size()) * sizeof( float ), vk::BufferUsageFlagBits::eTransferDst | vk::BufferUsageFlagBits::eVertexBuffer, vk::MemoryPropertyFlagBits::eDeviceLocal );

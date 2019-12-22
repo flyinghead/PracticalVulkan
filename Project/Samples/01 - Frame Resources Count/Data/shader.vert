@@ -28,7 +28,7 @@ layout(location = 1) out float v_Distance;
 
 void main() {
     v_Texcoord = i_Texcoord;
-    v_Distance = 1.0 - i_PerInstanceData.z;       // Darken with distance
+    v_Distance = 1.0 - i_PerInstanceData.z - 1.0;       // Darken with distance
 
     vec4 position = i_Position;
     position.y *= PushConstant.AspectScale;       // Adjust to screen aspect ration
